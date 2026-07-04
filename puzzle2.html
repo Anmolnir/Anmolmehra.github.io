@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle 2 - Guess the Place</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🧩 Puzzle 2</h1>
+
+    <div class="card">
+
+        <h2>Guess the Place</h2>
+
+        <p class="question">
+            🌊 I cover more than 70% of the Earth.<br><br>
+
+            🌊 I am larger than a sea.<br>
+
+            🌊 Many animals live inside me.<br>
+
+            🌊 My name has 5 letters.<br><br>
+
+            Who am I?
+        </p>
+
+        <input
+            type="text"
+            id="answer"
+            placeholder="Enter your answer"
+            autocomplete="off"
+        >
+
+        <br><br>
+
+        <button onclick="checkAnswer()">
+            Submit
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+</div>
+
+<script>
+function checkAnswer() {
+
+    let answer = document.getElementById("answer").value.trim().toUpperCase();
+
+    if(answer === "OCEAN"){
+
+        let score = Number(localStorage.getItem("score")) || 0;
+        score += 25;
+        localStorage.setItem("score", score);
+
+        alert("✅ Correct Answer!");
+
+        window.location.href = "puzzle3.html";
+
+    } else {
+
+        document.getElementById("message").innerHTML =
+        "❌ Wrong Answer! Try Again.";
+
+    }
+
+}
+</script>
+
+</body>
+</html>
