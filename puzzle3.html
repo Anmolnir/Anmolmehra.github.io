@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle 3 - Guess the Animal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🧩 Puzzle 3</h1>
+
+    <div class="card">
+
+        <h2>Guess the Animal</h2>
+
+        <p class="question">
+            🐾 I am known as the King of the Jungle.<br><br>
+
+            🐾 I have black stripes on my orange body.<br>
+
+            🐾 I am a powerful wild cat.<br>
+
+            🐾 My name has 5 letters.<br><br>
+
+            Who am I?
+        </p>
+
+        <input
+            type="text"
+            id="answer"
+            placeholder="Enter your answer"
+            autocomplete="off"
+        >
+
+        <br><br>
+
+        <button onclick="checkAnswer()">
+            Submit
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+</div>
+
+<script>
+function checkAnswer() {
+
+    let answer = document.getElementById("answer").value.trim().toUpperCase();
+
+    if(answer === "TIGER"){
+
+        let score = Number(localStorage.getItem("score")) || 0;
+        score += 25;
+        localStorage.setItem("score", score);
+
+        alert("✅ Correct Answer!");
+
+        window.location.href = "puzzle4.html";
+
+    } else {
+
+        document.getElementById("message").innerHTML =
+        "❌ Wrong Answer! Try Again.";
+
+    }
+
+}
+</script>
+
+</body>
+</html>
