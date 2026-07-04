@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Score - Puzzle Quest</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🏆 Congratulations!</h1>
+
+    <div class="card">
+
+        <h2>Your Final Score</h2>
+
+        <h1 id="score">0 / 100</h1>
+
+        <p id="result"></p>
+
+    </div>
+
+    <br>
+
+    <a href="index.html">
+        <button onclick="restartGame()">🏠 Home</button>
+    </a>
+
+    <br><br>
+
+    <button onclick="playAgain()">🔄 Play Again</button>
+
+</div>
+
+<script>
+
+let score = Number(localStorage.getItem("score")) || 0;
+
+document.getElementById("score").innerHTML = score + " / 100";
+
+let message = "";
+
+if(score === 100){
+    message = "🌟 Excellent! You solved all 4 puzzles perfectly!";
+}
+else if(score >= 75){
+    message = "🎉 Great Job! You did very well!";
+}
+else if(score >= 50){
+    message = "👍 Good Work! Keep practicing!";
+}
+else if(score >= 25){
+    message = "😊 Nice Try! You can do even better.";
+}
+else{
+    message = "😅 Better luck next time!";
+}
+
+document.getElementById("result").innerHTML = message;
+
+function playAgain(){
+
+    localStorage.setItem("score",0);
+
+    window.location.href="puzzle1.html";
+}
+
+function restartGame(){
+
+    localStorage.setItem("score",0);
+
+}
+
+</script>
+
+</body>
+</html>
