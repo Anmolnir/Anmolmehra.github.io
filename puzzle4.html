@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle 4 - Guess the Programming Language</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🧩 Puzzle 4</h1>
+
+    <div class="card">
+
+        <h2>Guess the Programming Language</h2>
+
+        <p class="question">
+            🐍 I am one of the world's most popular programming languages.<br><br>
+
+            🐍 My logo is a snake.<br>
+
+            🐍 I am beginner-friendly.<br>
+
+            🐍 My name has 6 letters.<br><br>
+
+            Who am I?
+        </p>
+
+        <input
+            type="text"
+            id="answer"
+            placeholder="Enter your answer"
+            autocomplete="off"
+        >
+
+        <br><br>
+
+        <button onclick="checkAnswer()">
+            Submit
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+</div>
+
+<script>
+function checkAnswer() {
+
+    let answer = document.getElementById("answer").value.trim().toUpperCase();
+
+    if(answer === "PYTHON"){
+
+        let score = Number(localStorage.getItem("score")) || 0;
+        score += 25;
+        localStorage.setItem("score", score);
+
+        alert("🎉 Congratulations! You solved all the puzzles!");
+
+        window.location.href = "score.html";
+
+    } else {
+
+        document.getElementById("message").innerHTML =
+        "❌ Wrong Answer! Try Again.";
+
+    }
+
+}
+</script>
+
+</body>
+</html>
