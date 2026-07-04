@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle 1 - Guess the Fruit</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🧩 Puzzle 1</h1>
+
+    <div class="card">
+
+        <h2>Guess the Fruit</h2>
+
+        <p class="question">
+            I am a fruit.<br><br>
+
+            🍎 I keep the doctor away.<br>
+            🍎 I can be red, green or yellow.<br>
+            🍎 My name has 5 letters.<br><br>
+
+            Who am I?
+        </p>
+
+        <input
+            type="text"
+            id="answer"
+            placeholder="Enter your answer"
+            autocomplete="off"
+        >
+
+        <br><br>
+
+        <button onclick="checkAnswer()">
+            Submit
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+</div>
+
+<script>
+function checkAnswer() {
+
+    let answer = document.getElementById("answer").value.trim().toUpperCase();
+
+    if(answer === "APPLE"){
+
+        localStorage.setItem("score",25);
+
+        alert("✅ Correct Answer!");
+
+        window.location.href="puzzle2.html";
+
+    }else{
+
+        document.getElementById("message").innerHTML =
+        "❌ Wrong Answer! Try Again.";
+
+    }
+
+}
+</script>
+
+</body>
+</html>
